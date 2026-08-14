@@ -4,6 +4,7 @@ miniprogram_npm/
 .DS_Store
 *.log
 ci.private.config.js
+miniprogram/config.local.js
 private.key
 preview.jpg
 preview.png

@@ -18,6 +18,8 @@
     "check": "npm run lint && npm run test",
     "preview": "node scripts/preview.js",
     "upload": "node scripts/upload.js",
+    "setup": "node scripts/setup.js",
+    "sync": "node scripts/sync.js",
     "new:session": "node scripts/new-session.js"
   },
   "devDependencies": {

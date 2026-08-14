@@ -11,11 +11,11 @@
 
 ## 待办（下一步）
 
-- [ ] 替换 `miniprogram/config.js` 的 `cloudEnv` 为真实云开发环境 ID
+- [ ] 替换 `miniprogram/config.local.js` 的 `cloudEnv` 为真实云开发环境 ID（`npm run setup` 会生成该文件）
 - [ ] 微信开发者工具：开通云开发 → 创建集合 `users`、`games`、`parties` → 右键 `cloudfunctions/api` 上传并部署（云端安装依赖）
 - [ ] 真机联调：聚会创建 / 加入 / 投票 / 确定携带、统计
 - [ ] 用 `npm run check` 跑 lint + 单测
-- [ ] 新机器接手：`git clone` → `npm install` → 填 `miniprogram/config.js` 与 `ci.private.config.js` → 部署云函数
+- [ ] 新机器接手：`git clone` → `npm run setup -- --name Lavatanssit --email 47296607+Lavatanssit@users.noreply.github.com` → 部署云函数
 - [ ] 体验版给朋友试 → 提交审核 → 发布
 
 ## 关键决策
@@ -24,6 +24,7 @@
 - 桌游封面 / 头像用云存储 fileID 直接展示。
 - 聚会「确定携带」由发起人按票数生成 Top-N（N = 参与者人数）。
 - 模型分工：Pro = 设计 / 评审 / 集成；Flash = 局部实现（见 AGENTS.md）。
+- 标准流程：`npm run setup`（新机初始化）/ `npm run sync`（收尾同步）；`cloudEnv` 拆到 gitignored 的 `config.local.js`。
 
 ## 踩坑记录
 

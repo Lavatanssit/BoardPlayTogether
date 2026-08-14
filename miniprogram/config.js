@@ -1,6 +1,15 @@
 // ============ 云开发环境配置 ============
-// ★ 必须替换：在微信开发者工具 → 云开发控制台 → 设置 → 环境ID 里查看
-// 例如：cloudEnv: 'boardgame-party-1g3x2abc12345678'
-module.exports = {
+// 默认值可提交到 git；每台机器的私有值请放到同目录的 config.local.js（已被 .gitignore 忽略）。
+// 快速生成：npm run setup（会从 config.local.example.js 复制一份）。
+const defaults = {
   cloudEnv: 'your-cloud-env-id'
 }
+
+let local = {}
+try {
+  local = require('./config.local.js')
+} catch (e) {
+  // 未创建 config.local.js 时使用默认值
+}
+
+module.exports = { ...defaults, ...local }
