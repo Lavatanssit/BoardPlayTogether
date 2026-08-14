@@ -1,0 +1,50 @@
+<view class="container" wx:if="{{party}}">
+  <view class="card">
+    <view class="detail-head">
+      <view class="detail-title">{{party.title}}</view>
+      <button class="share-btn" open-type="share">转发邀请</button>
+    </view>
+    <view class="detail-meta">🕐 {{party.timeText}}</view>
+    <view class="detail-meta" wx:if="{{party.location}}">📍 {{party.location}}</view>
+    <view class="detail-meta" wx:if="{{party.note}}">📝 {{party.note}}</view>
+    <view class="detail-meta status-text">状态：{{party.statusText}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">参与者（{{party.participants.length}}）</view>
+    <view class="chips">
+      <view class="chip" wx:for="{{party.participants}}" wx:key="openid">{{item.nickname}}{{item.openid === party.creatorOpenid ? ' 👑' : ''}}</view>
+    </view>
+    <button wx:if="{{!party.isJoined}}" class="btn-primary" bindtap="join">加入聚会</button>
+    <button wx:elif="{{!party.isCreator}}" class="btn-plain" bindtap="leave">退出聚会</button>
+  </view>
+
+  <view class="card" wx:if="{{party.isJoined && party.status === 'open'}}">
+    <view class="section-title">想玩哪些桌游？点选投票（可多选）</view>
+    <view wx:if="{{gameOptions.length}}">
+      <view class="game-option {{selected[item.name] ? 'on' : ''}}" wx:for="{{gameOptions}}" wx:key="name" bindtap="toggleGame" data-name="{{item.name}}">
+        <view class="g-main">
+          <view class="g-name">{{item.name}}</view>
+          <view class="g-owners">拥有：{{item.ownersNicknames}}</view>
+        </view>
+        <view class="g-votes">票数 {{tally[item.name] || 0}}</view>
+      </view>
+      <button class="btn-primary" bindtap="submitVote">提交投票</button>
+    </view>
+    <view wx:else class="empty-tip">参与者还没录入桌游，先去「桌游库」添加吧</view>
+  </view>
+
+  <view class="card" wx:if="{{party.result.length}}">
+    <view class="section-title">🎯 本次携带</view>
+    <view class="result-item" wx:for="{{party.result}}" wx:key="*this">{{index + 1}}. {{item}}</view>
+  </view>
+
+  <view class="card" wx:if="{{party.isCreator && party.status === 'open'}}">
+    <button class="btn-primary" bindtap="confirmResult">按票数确定携带</button>
+    <button class="btn-plain" bindtap="finish">结束聚会</button>
+    <button class="btn-danger" bindtap="cancel">取消聚会</button>
+  </view>
+</view>
+
+<view wx:elif="{{loading}}" class="empty"><text>加载中…</text></view>
+<view wx:else class="empty"><text>聚会不存在或已被删除</text></view>

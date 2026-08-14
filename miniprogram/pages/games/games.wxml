@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="topbar">
+    <text class="page-title">我的桌游库</text>
+    <button class="add-btn" bindtap="goAdd">+ 添加</button>
+  </view>
+
+  <block wx:if="{{games.length}}">
+    <view class="game-card" wx:for="{{games}}" wx:key="_id">
+      <image wx:if="{{item.imageFileID}}" class="game-img" src="{{item.imageFileID}}" mode="aspectFill" />
+      <view wx:else class="game-img placeholder">🎲</view>
+      <view class="game-info">
+        <view class="game-name">{{item.name}}</view>
+        <view class="game-meta" wx:if="{{item.minPlayers || item.maxPlayers}}">👥 {{item.minPlayers}}-{{item.maxPlayers}} 人</view>
+        <view class="game-meta" wx:if="{{item.duration}}">⏱ {{item.duration}}</view>
+        <view class="game-meta" wx:if="{{item.category}}">🏷 {{item.category}}</view>
+      </view>
+      <view class="game-actions">
+        <text bindtap="goEdit" data-id="{{item._id}}">编辑</text>
+        <text class="danger" bindtap="onDelete" data-id="{{item._id}}">删除</text>
+      </view>
+    </view>
+  </block>
+  <view wx:else class="empty">
+    <text>还没录入桌游，点右上角添加吧～</text>
+  </view>
+</view>

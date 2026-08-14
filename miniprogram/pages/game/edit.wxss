@@ -1,0 +1,15 @@
+.img-picker { margin: 8rpx 0 4rpx; }
+.cover {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  background: #f5f6f8;
+}
+.cover.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72rpx;
+  color: #a0aec0;
+}
+.sep { margin: 0 16rpx; color: #a0aec0; }

@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/parties/parties",
+    "pages/games/games",
+    "pages/tools/tools",
+    "pages/me/me",
+    "pages/party/detail",
+    "pages/party/create",
+    "pages/game/edit",
+    "pages/tools/dice",
+    "pages/tools/lottery",
+    "pages/tools/first",
+    "pages/stats/stats"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2b6cb0",
+    "navigationBarTitleText": "桌游聚会",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f6f8",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8a8f99",
+    "selectedColor": "#2b6cb0",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/parties/parties", "text": "聚会" },
+      { "pagePath": "pages/games/games", "text": "桌游库" },
+      { "pagePath": "pages/tools/tools", "text": "工具" },
+      { "pagePath": "pages/me/me", "text": "我的" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

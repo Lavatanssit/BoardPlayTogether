@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="page-title">辅助工具</view>
+
+  <view class="tool-card" wx:for="{{tools}}" wx:key="url" bindtap="goTool" data-url="{{item.url}}">
+    <text class="tool-icon">{{item.icon}}</text>
+    <view class="tool-info">
+      <view class="tool-name">{{item.name}}</view>
+      <view class="tool-desc">{{item.desc}}</view>
+    </view>
+    <text class="tool-arrow">›</text>
+  </view>
+</view>

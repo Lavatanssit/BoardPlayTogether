@@ -1,0 +1,38 @@
+.game-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(31, 45, 61, 0.06);
+}
+
+.game-img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+  background: #edf2f7;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+.game-img.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56rpx;
+}
+
+.game-info { flex: 1; }
+.game-name { font-size: 32rpx; font-weight: 600; }
+.game-meta { font-size: 24rpx; color: #718096; margin-top: 4rpx; }
+
+.game-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  color: #2b6cb0;
+  font-size: 26rpx;
+  padding-left: 16rpx;
+}
+.game-actions .danger { color: #e53e3e; }

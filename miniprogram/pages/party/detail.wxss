@@ -1,0 +1,30 @@
+.detail-head { display: flex; justify-content: space-between; align-items: flex-start; }
+.detail-title { font-size: 36rpx; font-weight: 700; flex: 1; }
+.share-btn {
+  background: #2b6cb0;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 999rpx;
+  padding: 4rpx 20rpx;
+  line-height: 1.6;
+  margin: 0 0 0 16rpx;
+}
+.share-btn::after { border: none; }
+.detail-meta { color: #4a5568; margin-top: 8rpx; font-size: 28rpx; }
+.status-text { color: #718096; }
+
+.game-option {
+  border: 1rpx solid #e2e8f0;
+  border-radius: 12rpx;
+  padding: 16rpx 20rpx;
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: center;
+}
+.game-option.on { border-color: #2b6cb0; background: #ebf4ff; }
+.g-main { flex: 1; }
+.g-name { font-weight: 600; font-size: 30rpx; }
+.g-owners { color: #718096; font-size: 24rpx; }
+.g-votes { margin-left: 16rpx; color: #2b6cb0; font-size: 24rpx; white-space: nowrap; }
+
+.result-item { padding: 8rpx 0; font-size: 28rpx; }

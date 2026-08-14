@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="topbar">
+    <text class="page-title">聚会</text>
+    <button class="add-btn" bindtap="goCreate">+ 发起聚会</button>
+  </view>
+
+  <block wx:if="{{parties.length}}">
+    <view class="party-card" wx:for="{{parties}}" wx:key="_id" bindtap="goDetail" data-id="{{item._id}}">
+      <view class="party-head">
+        <text class="party-title">{{item.title}}</text>
+        <text class="status status-{{item.status}}">{{item.statusText}}</text>
+      </view>
+      <view class="party-row">🕐 {{item.timeText}}</view>
+      <view class="party-row" wx:if="{{item.location}}">📍 {{item.location}}</view>
+      <view class="party-foot">
+        <text>👥 {{item.participants.length}} 人</text>
+        <text wx:if="{{item.isJoined}}" class="joined">已加入</text>
+        <text wx:elif="{{item.isCreator}}" class="joined">我发起的</text>
+      </view>
+    </view>
+  </block>
+  <view wx:else class="empty">
+    <text>还没有聚会，点右上角发起一个吧～</text>
+  </view>
+</view>

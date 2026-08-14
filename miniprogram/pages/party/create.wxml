@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="form-card">
+    <view class="field">
+      <text class="label">聚会标题 *</text>
+      <input class="input" placeholder="例如：周五晚上桌游局" value="{{title}}" bindinput="onTitle" />
+    </view>
+    <view class="field">
+      <text class="label">地点</text>
+      <input class="input" placeholder="例如：我家客厅 / 某桌游吧" value="{{location}}" bindinput="onLocation" />
+    </view>
+    <view class="field">
+      <text class="label">时间 *</text>
+      <view class="picker-row">
+        <picker mode="date" value="{{date}}" bindchange="onDate">
+          <view class="picker">{{date || '选择日期'}}</view>
+        </picker>
+        <picker mode="time" value="{{time}}" bindchange="onTime">
+          <view class="picker">{{time || '选择时间'}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="field">
+      <text class="label">备注</text>
+      <textarea class="textarea" placeholder="补充说明（可选）" value="{{note}}" bindinput="onNote" />
+    </view>
+  </view>
+
+  <button class="btn-primary" bindtap="submit">发起聚会</button>
+</view>

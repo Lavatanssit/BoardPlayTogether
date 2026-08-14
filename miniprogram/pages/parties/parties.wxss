@@ -1,0 +1,16 @@
+.party-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(31, 45, 61, 0.06);
+}
+.party-head { display: flex; justify-content: space-between; align-items: center; }
+.party-title { font-size: 32rpx; font-weight: 600; }
+.status { font-size: 22rpx; padding: 2rpx 14rpx; border-radius: 999rpx; }
+.status-open { background: #e6fffa; color: #2c7a7b; }
+.status-finished { background: #edf2f7; color: #4a5568; }
+.status-cancelled { background: #fed7d7; color: #c53030; }
+.party-row { color: #4a5568; margin-top: 8rpx; font-size: 26rpx; }
+.party-foot { display: flex; justify-content: space-between; margin-top: 12rpx; color: #718096; font-size: 24rpx; }
+.joined { color: #2b6cb0; }

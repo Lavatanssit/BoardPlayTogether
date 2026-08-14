@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="page-title">我的统计</view>
+
+  <view class="card" wx:if="{{!loading}}">
+    <view class="stat-grid">
+      <view class="stat-item">
+        <view class="stat-box">
+          <view class="stat-num">{{stats.myGameCount}}</view>
+          <view class="stat-label">我的桌游数</view>
+        </view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-box">
+          <view class="stat-num">{{stats.createdCount}}</view>
+          <view class="stat-label">发起聚会数</view>
+        </view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-box">
+          <view class="stat-num">{{stats.participatedCount}}</view>
+          <view class="stat-label">参与聚会数</view>
+        </view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-box">
+          <view class="stat-num">{{stats.totalParties}}</view>
+          <view class="stat-label">全部聚会数</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{!loading}}">
+    <view class="section-title">🎲 最常出现的桌游 Top10</view>
+    <block wx:if="{{stats.topGames.length}}">
+      <view class="rank-item" wx:for="{{stats.topGames}}" wx:key="name">
+        <view class="rank-index {{index < 3 ? 'top' : ''}}">{{index + 1}}</view>
+        <view class="rank-name">{{item.name}}</view>
+        <view class="rank-count">{{item.count}} 次</view>
+      </view>
+    </block>
+    <view wx:else class="empty-tip">暂无数据，去发起聚会投票吧～</view>
+  </view>
+
+  <view class="card" wx:if="{{!loading}}">
+    <view class="section-title">🏆 最活跃玩家 Top10</view>
+    <block wx:if="{{stats.topPlayers.length}}">
+      <view class="rank-item" wx:for="{{stats.topPlayers}}" wx:key="nickname">
+        <view class="rank-index {{index < 3 ? 'top' : ''}}">{{index + 1}}</view>
+        <view class="rank-name">{{item.nickname}}</view>
+        <view class="rank-count">{{item.count}} 次</view>
+      </view>
+    </block>
+    <view wx:else class="empty-tip">暂无数据</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="empty"><text>加载中…</text></view>
+</view>

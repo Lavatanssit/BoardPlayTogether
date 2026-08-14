@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="page-title">投骰子</view>
+
+  <view class="card">
+    <view class="section-title">骰子数量</view>
+    <view class="count-group">
+      <view class="count-btn {{count === item ? 'active' : ''}}" wx:for="{{counts}}" wx:key="*this" bindtap="onCount" data-count="{{item}}">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="dice-area">
+      <view class="die {{rolling ? 'rolling' : ''}}" wx:for="{{dice}}" wx:key="index">{{item}}</view>
+    </view>
+    <view class="total">合计<text class="total-num">{{total}}</text></view>
+  </view>
+
+  <button class="btn-primary" bindtap="roll" disabled="{{rolling}}">{{rolling ? '掷骰中…' : '掷'}}</button>
+</view>

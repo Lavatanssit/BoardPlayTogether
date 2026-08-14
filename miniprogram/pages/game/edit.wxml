@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="form-card">
+    <view class="field" style="flex-direction: column;">
+      <text class="label">封面图（可选）</text>
+      <view class="img-picker" bindtap="chooseImage">
+        <image wx:if="{{imageFileID}}" class="cover" src="{{imageFileID}}" mode="aspectFill" />
+        <view wx:else class="cover placeholder">＋</view>
+      </view>
+    </view>
+    <view class="field">
+      <text class="label">名称 *</text>
+      <input class="input" placeholder="例如：卡坦岛、狼人杀" value="{{name}}" bindinput="onInput" data-field="name" />
+    </view>
+    <view class="field">
+      <text class="label">类别</text>
+      <input class="input" placeholder="例如：德式、聚会、合作" value="{{category}}" bindinput="onInput" data-field="category" />
+    </view>
+    <view class="field">
+      <text class="label">玩家人数</text>
+      <view class="picker-row">
+        <input class="input" type="number" placeholder="最少" value="{{minPlayers}}" bindinput="onInput" data-field="minPlayers" />
+        <text class="sep">—</text>
+        <input class="input" type="number" placeholder="最多" value="{{maxPlayers}}" bindinput="onInput" data-field="maxPlayers" />
+      </view>
+    </view>
+    <view class="field">
+      <text class="label">时长</text>
+      <input class="input" placeholder="例如：60-90 分钟" value="{{duration}}" bindinput="onInput" data-field="duration" />
+    </view>
+    <view class="field">
+      <text class="label">备注</text>
+      <textarea class="textarea" placeholder="补充说明（可选）" value="{{notes}}" bindinput="onInput" data-field="notes" />
+    </view>
+  </view>
+
+  <button class="btn-primary" bindtap="submit">保存</button>
+</view>

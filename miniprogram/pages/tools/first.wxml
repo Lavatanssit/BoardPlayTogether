@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="page-title">猜先手</view>
+
+  <view class="card">
+    <view class="section-title">参与名单（每行一个名字，至少 2 个）</view>
+    <textarea class="textarea" placeholder="例如：&#10;小明&#10;小红&#10;小刚" value="{{names}}" bindinput="onNames" />
+  </view>
+
+  <button class="btn-primary" bindtap="shuffle">随机排序</button>
+
+  <view class="card" wx:if="{{shuffled}}">
+    <view class="section-title">排序结果</view>
+    <view class="rank-item {{index === 0 ? 'first' : ''}}" wx:for="{{list}}" wx:key="index">
+      <text class="rank-num">{{index + 1}}</text>
+      <text class="rank-name">{{item}}</text>
+      <text class="rank-tag" wx:if="{{index === 0}}">先手</text>
+    </view>
+  </view>
+</view>

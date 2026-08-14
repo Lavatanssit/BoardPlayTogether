@@ -1,0 +1,9 @@
+node_modules/
+cloudfunctions/*/node_modules/
+miniprogram_npm/
+.DS_Store
+*.log
+ci.private.config.js
+private.key
+preview.jpg
+preview.png

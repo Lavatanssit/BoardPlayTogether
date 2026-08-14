@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="page-title">桌游抽签</view>
+
+  <view class="tabs">
+    <view class="tab {{tab === 'game' ? 'active' : ''}}" bindtap="onTab" data-tab="game">抽桌游</view>
+    <view class="tab {{tab === 'people' ? 'active' : ''}}" bindtap="onTab" data-tab="people">抽人</view>
+  </view>
+
+  <view class="card" wx:if="{{tab === 'game'}}">
+    <view class="section-title">候选桌游（来自桌游库）</view>
+    <block wx:if="{{games.length}}">
+      <view class="chips">
+        <text class="chip" wx:for="{{games}}" wx:key="_id">{{item.name}}</text>
+      </view>
+    </block>
+    <view wx:else class="empty-tip">桌游库还没有桌游，先去「桌游库」添加吧</view>
+  </view>
+
+  <view class="card" wx:else>
+    <view class="section-title">候选名单（每行一个名字）</view>
+    <textarea class="textarea" placeholder="例如：&#10;小明&#10;小红&#10;小刚" value="{{names}}" bindinput="onNames" />
+  </view>
+
+  <view class="card result-card">
+    <view class="result-label">抽签结果</view>
+    <view class="result {{result ? '' : 'placeholder'}}">{{result || '点击下方按钮开始'}}</view>
+  </view>
+
+  <button class="btn-primary" bindtap="draw" disabled="{{rolling}}">{{rolling ? '抽签中…' : '抽一个'}}</button>
+</view>
